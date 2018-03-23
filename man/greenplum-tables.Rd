@@ -11,15 +11,15 @@
   copy = TRUE)
 }
 \arguments{
-\item{conn}{A \linkS4class{DBIConnection} object, as returned by
-\code{\link[=dbConnect]{dbConnect()}}.}
+\item{conn}{a [GreenplumConnection-class] object}
 
-\item{name}{A character string specifying the unquoted DBMS table name,
-or the result of a call to \code{\link[=dbQuoteIdentifier]{dbQuoteIdentifier()}}.}
+\item{name}{a character string specifying a table name. Names will be
+automatically quoted so you can use any sequence of characters, not just
+any valid bare table name.}
 
-\item{value}{a \link{data.frame} (or coercible to data.frame).}
+\item{value}{A data.frame to write to the database.}
 
-\item{...}{Other parameters passed on to methods.}
+\item{...}{Other arguments used by individual methods.}
 
 \item{row.names}{Either TRUE, FALSE, NA or a string}
 

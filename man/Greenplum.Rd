@@ -10,7 +10,3 @@ Greenplum()
 This driver never needs to be unloaded and hence `dbUnload()` is a
 null-op.
 }
-\examples{
-library(DBI)
-RGreenplum::Greenplum()
-}

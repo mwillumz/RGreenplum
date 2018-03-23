@@ -1,7 +1,20 @@
 #' Greenplum sqlCreateTable method
 #' @rdname hidden_aliases
 #' @inheritParams DBI::sqlCreateTable
+#' @param con A database connection.
+#' @param table Name of the table. Escaped with
+#'   [dbQuoteIdentifier()].
+#' @param fields Either a character vector or a data frame.
+#'
+#'   A named character vector: Names are column names, values are types.
+#'   Names are escaped with [dbQuoteIdentifier()].
+#'   Field types are unescaped.
+#'
+#'   A data frame: field types are generated using
+#'   [dbDataType()].
+#' @param temporary If `TRUE`, will generate a temporary table statement.
 #' @param distributed_by Distribution columns for new table. NULL for random distribution.
+#' @param ... Other arguments used by individual methods.
 #' @export
 setMethod("sqlCreateTable", signature("GreenplumConnection"),
           function(con, table, fields, row.names = NA, temporary = FALSE,

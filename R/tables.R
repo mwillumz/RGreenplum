@@ -1,6 +1,10 @@
 #' Greenplum dbWriteTable method
 #' @export
-#' @inheritParams DBI::dbWriteTable
+#' @param conn a [GreenplumConnection-class] object
+#' @param name a character string specifying a table name. Names will be
+#' automatically quoted so you can use any sequence of characters, not just
+#' any valid bare table name.
+#' @param value A data.frame to write to the database.
 #' @param row.names Either TRUE, FALSE, NA or a string
 #' @param overwrite a logical specifying whether to overwrite an existing table or not. Its default is FALSE.
 #' @param append a logical specifying whether to append to an existing table in the DBMS. Its default is FALSE.
@@ -8,6 +12,7 @@
 #' @param temporary If TRUE, will generate a temporary table statement.
 #' @param distributed_by Distribution columns for new table. NULL for random distribution.
 #' @param copy If TRUE, data will be copied to remote database
+#' @param ... Other arguments used by individual methods.
 #' @rdname greenplum-tables
 setMethod("dbWriteTable", c("GreenplumConnection", "character", "data.frame"),
           function(conn, name, value, ..., row.names = FALSE, overwrite = FALSE, append = FALSE,

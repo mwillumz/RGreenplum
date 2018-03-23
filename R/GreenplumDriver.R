@@ -5,9 +5,6 @@
 #'
 #' @export
 #' @import methods DBI RPostgres
-#' @examples
-#' library(DBI)
-#' RGreenplum::Greenplum()
 Greenplum <- function() {
   new("GreenplumDriver")
 }

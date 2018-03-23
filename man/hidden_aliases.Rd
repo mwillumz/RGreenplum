@@ -12,16 +12,16 @@
 \item{con}{A database connection.}
 
 \item{table}{Name of the table. Escaped with
-\code{\link[=dbQuoteIdentifier]{dbQuoteIdentifier()}}.}
+[dbQuoteIdentifier()].}
 
 \item{fields}{Either a character vector or a data frame.
 
-A named character vector: Names are column names, values are types.
-Names are escaped with \code{\link[=dbQuoteIdentifier]{dbQuoteIdentifier()}}.
-Field types are unescaped.
+  A named character vector: Names are column names, values are types.
+  Names are escaped with [dbQuoteIdentifier()].
+  Field types are unescaped.
 
-A data frame: field types are generated using
-\code{\link[=dbDataType]{dbDataType()}}.}
+  A data frame: field types are generated using
+  [dbDataType()].}
 
 \item{row.names}{Either \code{TRUE}, \code{FALSE}, \code{NA} or a string.
 
@@ -34,7 +34,7 @@ default name.
 
 For backward compatibility, \code{NULL} is equivalent to \code{FALSE}.}
 
-\item{temporary}{If \code{TRUE}, will generate a temporary table statement.}
+\item{temporary}{If `TRUE`, will generate a temporary table statement.}
 
 \item{distributed_by}{Distribution columns for new table. NULL for random distribution.}
 
