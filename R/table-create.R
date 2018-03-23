@@ -1,4 +1,7 @@
+#' Greenplum sqlCreateTable method
 #' @rdname hidden_aliases
+#' @inheritParams DBI::sqlCreateTable
+#' @param distributed_by Distribution columns for new table. NULL for random distribution.
 #' @export
 setMethod("sqlCreateTable", signature("GreenplumConnection"),
           function(con, table, fields, row.names = NA, temporary = FALSE,

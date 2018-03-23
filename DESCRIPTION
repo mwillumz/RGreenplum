@@ -1,14 +1,19 @@
 Package: RGreenplum
-Type: Package
-Title: What the Package Does (Title Case)
+Title: Interface to 'Greenplum' Database
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: c(person("Michael", "Williams", role = c("aut", "cre"), 
+  email = "michael.williams@mpls.frb.org"))
+Description: 
+    Fully 'DBI'-compliant interface to Greenplum <https://greenplum.org/>,
+    an open-source parallel database. This is an extension of the RPostgres
+    package <https://github.com/r-dbi/RPostgres>.
+License: GPL-2
+URL: https://github.com/mwillumz/RGreenplum
+BugReports: https://github.com/mwillumz/RGreenplum/issues
 Encoding: UTF-8
 LazyData: true
+Depends:
+  R (>= 3.1.0)
 Imports:
   RPostgres,
   DBI (>= 0.3.0),

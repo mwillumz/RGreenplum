@@ -39,7 +39,6 @@ setClass("GreenplumConnection",
 #' @param bigint The R type that 64-bit integer types should be mapped to,
 #'   default is [bit64::integer64], which allows the full range of 64 bit
 #'   integers.
-#' @param conn Connection to disconnect.
 #' @inheritParams RPostgres::dbConnect
 #' @export
 setMethod("dbConnect", "GreenplumDriver",

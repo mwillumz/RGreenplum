@@ -1,28 +1,36 @@
-
+#' Greenplum dbWriteTable method
 #' @export
-#' @rdname postgres-tables
+#' @inheritParams DBI::dbWriteTable
+#' @param row.names Either TRUE, FALSE, NA or a string
+#' @param overwrite a logical specifying whether to overwrite an existing table or not. Its default is FALSE.
+#' @param append a logical specifying whether to append to an existing table in the DBMS. Its default is FALSE.
+#' @param field.types character vector of named SQL field types where the names are the names of new table's columns.
+#' @param temporary If TRUE, will generate a temporary table statement.
+#' @param distributed_by Distribution columns for new table. NULL for random distribution.
+#' @param copy If TRUE, data will be copied to remote database
+#' @rdname greenplum-tables
 setMethod("dbWriteTable", c("GreenplumConnection", "character", "data.frame"),
           function(conn, name, value, ..., row.names = FALSE, overwrite = FALSE, append = FALSE,
                    field.types = NULL, temporary = FALSE, distributed_by = NULL, copy = TRUE) {
 
             if (is.null(row.names)) row.names <- FALSE
             if ((!is.logical(row.names) && !is.character(row.names)) || length(row.names) != 1L)  {
-              stopc("`row.names` must be a logical scalar or a string")
+              stop("`row.names` must be a logical scalar or a string")
             }
             if (!is.logical(overwrite) || length(overwrite) != 1L || is.na(overwrite))  {
-              stopc("`overwrite` must be a logical scalar")
+              stop("`overwrite` must be a logical scalar")
             }
             if (!is.logical(append) || length(append) != 1L || is.na(append))  {
-              stopc("`append` must be a logical scalar")
+              stop("`append` must be a logical scalar")
             }
             if (!is.logical(temporary) || length(temporary) != 1L)  {
-              stopc("`temporary` must be a logical scalar")
+              stop("`temporary` must be a logical scalar")
             }
             if (overwrite && append) {
-              stopc("overwrite and append cannot both be TRUE")
+              stop("overwrite and append cannot both be TRUE")
             }
             if (append && !is.null(field.types)) {
-              stopc("Cannot specify field.types with append = TRUE")
+              stop("Cannot specify field.types with append = TRUE")
             }
 
             found <- dbExistsTable(conn, name)

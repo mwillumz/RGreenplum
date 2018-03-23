@@ -39,8 +39,6 @@ options as described at
 \item{bigint}{The R type that 64-bit integer types should be mapped to,
 default is [bit64::integer64], which allows the full range of 64 bit
 integers.}
-
-\item{conn}{Connection to disconnect.}
 }
 \description{
 Manually disconnecting a connection is not necessary with RGreenplum, but

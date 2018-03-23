@@ -19,13 +19,14 @@ Greenplum <- function() {
 #' @export
 setClass("GreenplumDriver", contains = "PqDriver")
 
-#' @export
 #' @rdname GreenplumDriver-class
 setMethod("dbUnloadDriver", "GreenplumDriver", function(drv, ...) {
   NULL
 })
 
-#' @export
+#' Greenplum dbIsValid method
+#' @param dbObj database object
+#' @param ... other arguments for method
 #' @rdname GreenplumResult-class
 setMethod("dbIsValid", "GreenplumDriver", function(dbObj, ...) {
   TRUE
