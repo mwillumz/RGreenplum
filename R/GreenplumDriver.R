@@ -4,7 +4,10 @@
 #' null-op.
 #'
 #' @export
-#' @import methods DBI RPostgres
+#' @import methods RPostgres
+#' @examples
+#' library(RPostgres)
+#' RGreenplum::Greenplum()
 Greenplum <- function() {
   new("GreenplumDriver")
 }

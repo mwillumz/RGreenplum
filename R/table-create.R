@@ -15,6 +15,7 @@
 #' @param temporary If `TRUE`, will generate a temporary table statement.
 #' @param distributed_by Distribution columns for new table. NULL for random distribution.
 #' @param ... Other arguments used by individual methods.
+#' @importMethodsFrom DBI sqlCreateTable
 #' @export
 setMethod("sqlCreateTable", signature("GreenplumConnection"),
           function(con, table, fields, row.names = NA, temporary = FALSE,
@@ -22,7 +23,7 @@ setMethod("sqlCreateTable", signature("GreenplumConnection"),
             table <- dbQuoteIdentifier(con, table)
 
             if (is.data.frame(fields)) {
-              fields <- sqlRownamesToColumn(fields, row.names)
+              fields <- DBI::sqlRownamesToColumn(fields, row.names)
               fields <- vapply(fields, function(x) DBI::dbDataType(con, x), character(1))
             }
 
@@ -38,7 +39,7 @@ setMethod("sqlCreateTable", signature("GreenplumConnection"),
                      ")")
             }
 
-            SQL(paste0(
+            DBI::SQL(paste0(
               "CREATE ", if (temporary) "TEMPORARY ", "TABLE ", table, " (\n",
               "  ", paste(fields, collapse = ",\n  "), "\n)\n ",
               distribution

@@ -65,7 +65,7 @@ setMethod("dbWriteTable", c("GreenplumConnection", "character", "data.frame"),
             if (nrow(value) > 0) {
               value <- sqlData(conn, value, row.names = row.names, copy = copy)
               if (!copy) {
-                sql <- sqlAppendTable(conn, name, value)
+                sql <- DBI::sqlAppendTable(conn, name, value)
                 dbExecute(conn, sql)
               } else {
                 fields <- dbQuoteIdentifier(conn, names(value))
