@@ -2,7 +2,7 @@ Package: RGreenplum
 Title: Interface to 'Greenplum' Database
 Version: 0.1.0
 Authors@R: c(person("Michael", "Williams", role = c("aut", "cre"), 
-  email = "michael.williams@mpls.frb.org"))
+  email = "mw8765999@gmail.com"))
 Description: 
     Fully 'DBI'-compliant interface to Greenplum <https://greenplum.org/>,
     an open-source parallel database. This is an extension of the RPostgres
