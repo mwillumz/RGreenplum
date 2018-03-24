@@ -59,14 +59,14 @@ setMethod("dbWriteTable", c("GreenplumConnection", "character", "data.frame"),
               sql <- sqlCreateTable(conn, name, if (is.null(field.types)) value else types,
                                     row.names = row.names, temporary = temporary,
                                     distributed_by = distributed_by)
-              dbExecute(conn, sql)
+              DBI::dbExecute(conn, sql)
             }
 
             if (nrow(value) > 0) {
               value <- sqlData(conn, value, row.names = row.names, copy = copy)
               if (!copy) {
                 sql <- DBI::sqlAppendTable(conn, name, value)
-                dbExecute(conn, sql)
+                DBI::dbExecute(conn, sql)
               } else {
                 fields <- dbQuoteIdentifier(conn, names(value))
                 sql <- paste0(

@@ -60,6 +60,6 @@ setMethod("dbConnect", "GreenplumDriver",
             }
 
             con <- new("GreenplumConnection", ptr = ptr, bigint = bigint)
-            dbExecute(con, "SET TIMEZONE='UTC'")
+            DBI::dbExecute(con, "SET TIMEZONE='UTC'")
             con
           })
