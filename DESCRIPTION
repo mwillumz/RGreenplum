@@ -4,8 +4,8 @@ Version: 0.1.0
 Authors@R: c(person("Michael", "Williams", role = c("aut", "cre"), 
   email = "mw8765999@gmail.com"))
 Description: 
-    Fully 'DBI'-compliant interface to Greenplum <https://greenplum.org/>,
-    an open-source parallel database. This is an extension of the RPostgres
+    Fully 'DBI'-compliant interface to 'Greenplum' <https://greenplum.org/>,
+    an open-source parallel database. This is an extension of the 'RPostgres'
     package <https://github.com/r-dbi/RPostgres>.
 License: GPL-2
 URL: https://github.com/mwillumz/RGreenplum
