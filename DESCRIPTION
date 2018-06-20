@@ -1,6 +1,6 @@
 Package: RGreenplum
 Title: Interface to 'Greenplum' Database
-Version: 0.1.0
+Version: 0.1.1.9000
 Authors@R: c(person("Michael", "Williams", role = c("aut", "cre"), 
   email = "mw8765999@gmail.com"))
 Description: 

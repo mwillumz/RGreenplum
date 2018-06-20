@@ -82,3 +82,46 @@ setMethod("dbWriteTable", c("GreenplumConnection", "character", "data.frame"),
           }
 )
 
+#' @export
+#' @rdname postgres-tables
+setMethod("dbExistsTable", c("GreenplumConnection", "character"), function(conn, name, ...) {
+  stopifnot(length(name) == 1L)
+  name <- dbQuoteIdentifier(conn, name)
+
+  # Convert to identifier
+  id <- dbUnquoteIdentifier(conn, name)[[1]]@name
+  exists_table(conn, id)
+})
+
+#' @export
+#' @rdname postgres-tables
+setMethod("dbExistsTable", c("GreenplumConnection", "Id"), function(conn, name, ...) {
+  exists_table(conn, id = name@name)
+})
+
+exists_table <- function(conn, id) {
+  table <- dbQuoteString(conn, id[["table"]])
+
+  query <- paste0(
+    "SELECT COUNT(*) FROM INFORMATION_SCHEMA.tables WHERE table_name = ",
+    table
+  )
+
+  if ("schema" %in% names(id)) {
+    query <- paste0(
+      query,
+      "AND ",
+      "table_schema = ",
+      dbQuoteString(conn, id[["schema"]])
+    )
+  } else {
+    query <- paste0(
+      query,
+      "AND ",
+      "(table_schema = ANY(current_schemas(false)) OR table_type = 'LOCAL TEMPORARY')"
+    )
+  }
+
+  dbGetQuery(conn, query)[[1]] >= 1
+}
+

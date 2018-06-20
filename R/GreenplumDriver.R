@@ -4,7 +4,7 @@
 #' null-op.
 #'
 #' @export
-#' @import methods RPostgres
+#' @import methods RPostgres DBI
 #' @examples
 #' library(RPostgres)
 #' RGreenplum::Greenplum()
