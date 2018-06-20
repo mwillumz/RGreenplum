@@ -83,7 +83,7 @@ setMethod("dbWriteTable", c("GreenplumConnection", "character", "data.frame"),
 )
 
 #' @export
-#' @rdname postgres-tables
+#' @rdname greenplum-tables
 setMethod("dbExistsTable", c("GreenplumConnection", "character"), function(conn, name, ...) {
   stopifnot(length(name) == 1L)
   name <- dbQuoteIdentifier(conn, name)
@@ -94,7 +94,7 @@ setMethod("dbExistsTable", c("GreenplumConnection", "character"), function(conn,
 })
 
 #' @export
-#' @rdname postgres-tables
+#' @rdname greenplum-tables
 setMethod("dbExistsTable", c("GreenplumConnection", "Id"), function(conn, name, ...) {
   exists_table(conn, id = name@name)
 })

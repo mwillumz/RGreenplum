@@ -3,12 +3,18 @@
 \docType{methods}
 \name{dbWriteTable,GreenplumConnection,character,data.frame-method}
 \alias{dbWriteTable,GreenplumConnection,character,data.frame-method}
+\alias{dbExistsTable,GreenplumConnection,character-method}
+\alias{dbExistsTable,GreenplumConnection,Id-method}
 \title{Greenplum dbWriteTable method}
 \usage{
 \S4method{dbWriteTable}{GreenplumConnection,character,data.frame}(conn, name,
   value, ..., row.names = FALSE, overwrite = FALSE, append = FALSE,
   field.types = NULL, temporary = FALSE, distributed_by = NULL,
   copy = TRUE)
+
+\S4method{dbExistsTable}{GreenplumConnection,character}(conn, name, ...)
+
+\S4method{dbExistsTable}{GreenplumConnection,Id}(conn, name, ...)
 }
 \arguments{
 \item{conn}{a [GreenplumConnection-class] object}
