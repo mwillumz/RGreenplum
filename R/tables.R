@@ -93,12 +93,6 @@ setMethod("dbExistsTable", c("GreenplumConnection", "character"), function(conn,
   exists_table(conn, id)
 })
 
-#' @export
-#' @rdname greenplum-tables
-setMethod("dbExistsTable", c("GreenplumConnection", "Id"), function(conn, name, ...) {
-  exists_table(conn, id = name@name)
-})
-
 exists_table <- function(conn, id) {
   table <- dbQuoteString(conn, id[["table"]])
 
