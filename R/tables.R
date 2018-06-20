@@ -84,7 +84,7 @@ setMethod("dbWriteTable", c("GreenplumConnection", "character", "data.frame"),
 
 #' Greenplum dbExistsTable method
 #' @export
-#' #' @param conn a [GreenplumConnection-class] object
+#' @param conn a [GreenplumConnection-class] object
 #' @param name a character string specifying a table name. Names will be
 #' automatically quoted so you can use any sequence of characters, not just
 #' any valid bare table name.
