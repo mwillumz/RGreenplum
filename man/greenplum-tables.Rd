@@ -37,14 +37,6 @@ any valid bare table name.}
 \item{distributed_by}{Distribution columns for new table. NULL for random distribution.}
 
 \item{copy}{If TRUE, data will be copied to remote database}
-
-\item{conn}{a [GreenplumConnection-class] object}
-
-\item{name}{a character string specifying a table name. Names will be
-automatically quoted so you can use any sequence of characters, not just
-any valid bare table name.}
-
-\item{...}{Other arguments used by individual methods.}
 }
 \description{
 Greenplum dbWriteTable method
