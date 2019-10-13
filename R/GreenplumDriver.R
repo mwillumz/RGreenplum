@@ -1,3 +1,6 @@
+#' @include s4.R
+NULL
+
 #' Greenplum driver
 #'
 #' This driver never needs to be unloaded and hence `dbUnload()` is a
